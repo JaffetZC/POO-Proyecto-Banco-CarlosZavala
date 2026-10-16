@@ -21,7 +21,15 @@ public class Main {
         System.out.println(miCuenta.numeroCuenta);
         //En este punto si deja acceder directamente a los atributos por que son publicos
         
-        CuentaAhorro cuantaAhorro = new CuentaAhorro();
+        CuentaAhorro cuentaAhorro = new CuentaAhorro("2024203", "Jose Alsares", 3000,5);
+        System.out.println(cuentaAhorro.retirarConComision(200));
+        System.out.println(miCuenta.getSaldo());
+        System.out.println(cuentaAhorro.retirarConComision(400));
+        System.out.println(miCuenta.getSaldo());
+        System.out.println(cuentaAhorro.retirarConComision(600));
+        System.out.println(miCuenta.getSaldo());
+        System.out.println(cuentaAhorro.retirarConComision(600));
+        System.out.println(miCuenta.getSaldo());
         
     }
 }

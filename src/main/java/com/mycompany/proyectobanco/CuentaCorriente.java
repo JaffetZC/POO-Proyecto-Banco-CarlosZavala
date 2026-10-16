@@ -24,7 +24,7 @@ public class CuentaCorriente extends CuentaBancaria{
     double getSobregiroUtilizado(){
         return this.sobregiroUtilizado;
     }
-    String retirarConSobregiro(double monto){
+    void retirarConSobregiro(double monto){
         if(getSaldo() > monto){
             retirar(monto);
         }
@@ -36,7 +36,7 @@ public class CuentaCorriente extends CuentaBancaria{
         else{
             throw new Error ("Saldo insuficiente o Limite de sobregiro alcanzado");
         }
-        return "";
+        
     }
     void pagarSobregiro(double monto){
         if(monto < this.sobregiroUtilizado){
