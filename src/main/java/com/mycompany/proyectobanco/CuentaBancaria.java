@@ -27,15 +27,15 @@ public class CuentaBancaria {
         int getTotalTransacciones(){
             return this.totalTransacciones;
         }
-        String depositar(double monto){
+        void depositar(double monto){
             if(monto <= 0){
                 throw new Error("Error, no se pudo realizar la transaccion, valor erroneo");
             }
             if(monto > 0){
                 this.saldo += monto;
                 this.totalTransacciones += 1;
+                System.out.println("Transaccion exitosa");
             }
-            return "Transaccion exitosa";
         }
         
         boolean retirar(double monto){
@@ -50,8 +50,8 @@ public class CuentaBancaria {
                 return false;
             }
         }
-        String mostrarDatos(){
-            return this.titular+" "+this.numeroCuenta+ " "+this.saldo+" "+this.totalTransacciones;
+        void mostrarDatos(){
+            System.out.println(this.titular+" "+this.numeroCuenta+ " "+this.saldo+" "+this.totalTransacciones);
         }
         
 }

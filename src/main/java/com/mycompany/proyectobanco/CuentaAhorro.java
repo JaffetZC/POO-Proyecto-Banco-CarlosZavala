@@ -18,5 +18,25 @@ public class CuentaAhorro extends CuentaBancaria {
         this.tasaInteresAnual = tasaInteresAnual;
         
     }
+    String retirarConComision(double monto){
+        if(retirosRealizadosMes >= 3){
+            if(getSaldo() >= monto + this.comisionPorExceso){
+                double montoTotal = monto + this.comisionPorExceso;
+                retirar(montoTotal);
+                retirosRealizadosMes += 1;
+                System.out.println("Se ha cobrado una comision por Exceso de de transacciones, comision: "+this.comisionPorExceso);
+            }
+        }
+        else{
+            retirar(monto);
+            retirosRealizadosMes += 1;
+        }
+        return "Transaccion Exitosa";
+    }
+    void aplicarInteresAnual(){
+        double montoInteres = (getSaldo()*(this.tasaInteresAnual/100))/12; 
+        depositar(montoInteres);
+        System.out.println("Se aplico correctamente el interes mensual");
+    }
     
 }
